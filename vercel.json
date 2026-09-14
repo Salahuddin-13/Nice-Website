@@ -1,4 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "buildCommand": "node node_modules/esbuild/install.js && node node_modules/vite/bin/vite.js build",
   "outputDirectory": "dist"
 }
