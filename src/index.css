@@ -142,10 +142,11 @@ main { flex: 1 }
 .permission-card svg { position: absolute; right: 14px; bottom: 14px }
 .visual-caption { position: absolute; font-size: 7px; letter-spacing: 1.8px; color: #9a948e; bottom: -15px; left: 70px }
 
-.stats-row { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line) }
-.stat { display: flex; flex-direction: column; gap: 5px }
-.stat b { font-family: 'Manrope', sans-serif; font-size: 27px; font-weight: 650; letter-spacing: -1.2px; color: var(--ink) }
-.stat span { font-size: 11px; line-height: 1.6; color: #86837d; max-width: 30ch }
+.stats-row { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line) }
+.stat { display: flex; flex-direction: column; gap: 5px; padding: 16px; border-radius: 14px; background: var(--paper); border: 1px solid #efede8; transition: transform .25s, box-shadow .25s }
+.stat:hover { transform: translateY(-3px); box-shadow: 0 8px 20px #3127450f }
+.stat b { font-family: 'Manrope', sans-serif; font-size: 26px; font-weight: 650; letter-spacing: -1.2px; color: var(--ink) }
+.stat span { font-size: 10.5px; line-height: 1.6; color: #86837d; max-width: 30ch }
 
 /* ── ticker ────────────────────────────────────────────────────────────── */
 .ticker { width: 100%; overflow: hidden; background: var(--soft); border-top: 1px solid #e6e0ec; border-bottom: 1px solid #e6e0ec; height: 58px; display: flex; align-items: center }
@@ -383,7 +384,7 @@ h2 { font-family: 'Manrope', sans-serif; font-size: 31px; line-height: 1.28; fon
   .discovery-card.featured { grid-template-columns: 1fr; padding: 16px }
   .featured .card-art { min-height: 210px }
   .contact-card { grid-template-columns: 1fr; gap: 30px; padding: 34px 28px }
-  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 20px }
+  .stats-row { grid-template-columns: repeat(3, 1fr); gap: 16px }
 }
 @media (max-width: 900px) {
   .page-width, .site-header { width: calc(100% - 40px) }

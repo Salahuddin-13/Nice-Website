@@ -11,9 +11,9 @@ export default function Experience() {
         eyebrow="THINGS I WAS RESPONSIBLE FOR"
         title={
           <>
-            One research internship,
+            Research, hackathons,
             <br />
-            two <em className="serif">hackathon</em> builds.
+            and a <em className="serif">2nd-place</em> finish.
           </>
         }
         aside="Written from résumé v4 and cross-checked against my public repositories. Where a number is quoted, it lives in that repo's README."
@@ -23,7 +23,7 @@ export default function Experience() {
         {experience.map(role => (
           <li className="timeline-item reveal" key={role.org}>
             <span className="timeline-dot" aria-hidden="true">
-              <Icon name={role.kind === "Research" ? "spark" : "layers"} size={15} />
+              <Icon name={role.kind === "Research" ? "spark" : role.title.includes("Prize") ? "spark" : "layers"} size={15} />
             </span>
             <div className="timeline-body">
               <div className="role-head">

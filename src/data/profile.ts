@@ -93,7 +93,8 @@ export const profile = {
     { value: "9.22", label: "SGPA, Computer Science at Vasavi College of Engineering" },
     { value: "Top 2%", label: "NPTEL + IIT Madras — Joy of Computing using Python, 87%" },
     { value: "5 certs", label: "Oracle Cloud: GenAI Professional, Data Science, AI Foundations & more" },
-    { value: "<12 ms", label: "inference on the SkyGuard AI detector I built for SIH 2026" },
+    { value: "<12 ms", label: "inference on the SkyGuard AI detector built for SIH 2026" },
+    { value: "2nd", label: "Prize at E-Summit Hackathon — competing against teams nationwide" },
   ],
 
   about: {
@@ -164,6 +165,21 @@ export const profile = {
       ],
       tags: ["Python", "Data analysis", "Frontend", "Teamwork"],
       link: { label: "github.com/Salahuddin-13/punjab-crop-recommender", href: "https://github.com/Salahuddin-13/punjab-crop-recommender" },
+    },
+    {
+      org: "E-Summit Hackathon",
+      title: "2nd Prize Winner · Full-stack build",
+      kind: "Hackathon",
+      period: "2026",
+      location: "E-Summit · Entrepreneurship & Innovation",
+      summary:
+        "Won 2nd place at the E-Summit Hackathon, competing against teams from across the country with an innovative tech solution.",
+      bullets: [
+        "Secured 2nd Prize at the E-Summit Hackathon, competing against a large pool of talented teams.",
+        "Designed and built a complete working prototype under time pressure, demonstrating both technical execution and presentation skills.",
+        "Combined full-stack engineering with a compelling product narrative to impress the judging panel.",
+      ],
+      tags: ["Hackathon", "Full-stack", "Innovation", "Award"],
     },
   ] as Role[],
 
