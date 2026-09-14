@@ -8,15 +8,15 @@ export default function Experience() {
   return (
     <Section id="experience" className="experience-section">
       <SectionHead
-        eyebrow="THINGS I WAS RESPONSIBLE FOR"
+        eyebrow="EXPERIENCE & ACHIEVEMENTS"
         title={
           <>
-            Research, hackathons,
+            Research internships, hackathons,
             <br />
-            and a <em className="serif">2nd-place</em> finish.
+            and <em className="serif">award-winning</em> builds.
           </>
         }
-        aside="Written from résumé v4 and cross-checked against my public repositories. Where a number is quoted, it lives in that repo's README."
+        aside="Hands-on engineering experience across academic research, national hackathons, and high-impact systems."
       />
 
       <ol className="timeline">

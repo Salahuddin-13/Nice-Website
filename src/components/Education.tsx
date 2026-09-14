@@ -11,14 +11,15 @@ export default function Education() {
   return (
     <Section id="education" className="education-section">
       <SectionHead
-        eyebrow="THE PAPERWORK"
+        eyebrow="EDUCATION & CREDENTIALS"
         title={
           <>
-            A degree is a line item.
+            Academic foundation
             <br />
-            <em className="serif">Coursework</em> is the receipt.
+            and professional <em className="serif">certifications.</em>
           </>
         }
+        aside="Core coursework in computer science, enterprise cloud certifications, and competitive programming."
       />
 
       <div className="education-grid">

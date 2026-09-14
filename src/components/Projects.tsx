@@ -63,7 +63,7 @@ function CaseStudy({ project, onClose }: { project: Project; onClose: () => void
             </a>
           ))}
           <span className="modal-note">
-            <Icon name="check" size={15} /> Read the commits, not just the screenshots.
+            <Icon name="check" size={15} /> Full source code and documentation available on GitHub.
           </span>
         </div>
       </section>
@@ -125,12 +125,12 @@ export default function Projects() {
         eyebrow="SELECTED WORK"
         title={
           <>
-            Seven things I built
+            Featured engineering projects
             <br />
-            and can <em className="serif">defend</em> in an interview.
+            and <em className="serif">technical builds.</em>
           </>
         }
-        aside="Tap any card for the case study: the problem, the tradeoffs, the stack, and the repo."
+        aside="Click any project card to view the case study, architecture details, and source repositories."
         action={
           <a className="text-button explore-all" href={profile.links.github} target="_blank" rel="noreferrer">
             All 22 repos <Icon name="arrow" size={18} />

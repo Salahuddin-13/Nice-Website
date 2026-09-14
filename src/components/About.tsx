@@ -8,12 +8,12 @@ export default function About() {
   return (
     <Section id="about" className="about-section">
       <SectionHead
-        eyebrow="WHO IS WRITING"
+        eyebrow="ABOUT ME"
         title={
           <>
-            The gap between a model
+            Bridging the gap between AI models
             <br />
-            and a <em className="serif">usable product.</em>
+            and <em className="serif">production systems.</em>
           </>
         }
       />
@@ -31,7 +31,7 @@ export default function About() {
             </span>
             <span className="about-fact">
               <Icon name="mail" size={16} />
-              {profile.email || "email: set it in src/data/profile.ts"}
+              {profile.email}
             </span>
             <span className="about-fact">
               <Icon name="clock" size={16} />

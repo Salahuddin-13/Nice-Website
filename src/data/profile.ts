@@ -61,14 +61,14 @@ export const profile = {
     nameLines: ["Mohammed", "Salahuddin"],
     nameAccent: "Shams.",
     description:
-      "I write C++ when an algorithm has to earn its keep and Python when a model has to ship — and I put a real interface in front of both. Research intern at IIT Ropar, Oracle-certified in GenAI and data science, and the reason my GitHub has 22 repositories is that I finish things.",
+      "Full-stack and AI engineer passionate about building high-performance systems and intelligent user experiences. Research intern at IIT Ropar, 5x Oracle certified across GenAI and Data Science, with a track record of taking complex machine learning and algorithmic ideas to shipped, production-ready applications.",
     social: "22 public repositories, mostly TypeScript and Python.",
     image: "/images/portfolio-hero.jpg",
     imageAlt:
       "A liquid-chrome ring holding an orange sphere, beside a frosted glass card and a lime tennis ball on a cream plinth",
     sticker: ["CERTIFIED", "AND CURIOUS"],
-    floatLabel: "SGPA 9.22. Also: sub-12 ms inference.",
-    caption: "RÉSUMÉ v4 · SELECTED WORK 2025 — 2026",
+    floatLabel: "SGPA 9.22 · Sub-12ms Inference",
+    caption: "SELECTED WORK & ACHIEVEMENTS · 2025 — 2026",
     card: { kicker: "WHERE I’VE BEEN", strong: ["Research intern,", "IIT Ropar."] },
   },
 
@@ -96,21 +96,21 @@ export const profile = {
   ],
 
   about: {
-    lead: "I like the part of engineering where a model stops being a notebook and starts being a product.",
+    lead: "Engineering intelligent, performant products from model to production.",
     paragraphs: [
-      "Most of my work lives in the gap between a machine-learning idea and something a real user could click. That gap is where things break: latency, bad data, an API that costs more than the answer is worth, a UI that has to explain why the machine said what it said. I enjoy that gap enough to have made it my main job.",
-      "So far it has meant a research internship at IIT Ropar, an anomaly-detection platform for the India Meteorological Department's weather stations, a GenAI code-analysis tool running LLaMA 3.3 70B on Groq, and an algorithm visualizer I built because the lecture slides were not doing anybody any favours. Each one shipped with a backend, a frontend, and a README that admits the tradeoffs.",
+      "Most of my work lives in the intersection of machine learning and modern software engineering. I focus on solving the real-world challenges that emerge when taking models into production: reducing inference latency, architecting resilient streaming pipelines, and crafting clean user interfaces that make intelligent systems intuitive.",
+      "My experience spans a competitive research internship at IIT Ropar, a real-time anomaly detection engine for the India Meteorological Department with sub-12ms latency, a developer-focused GenAI code analysis platform powered by LLaMA 3.3 70B on Groq, and interactive algorithm visualizers.",
     ],
     traits: [
-      { title: "End to end, on purpose", body: "I would rather own one thin vertical slice — schema, API, UI, deploy — than four unfinished layers. Render and Netlify both have my fingerprints on them." },
-      { title: "Numbers, not vibes", body: "Every claim I make has a measurement next to it: latency, station count, contest rank, SGPA. If I can't measure it, I say so instead." },
-      { title: "Fundamentals first", body: "C++ and data structures before frameworks. NPTEL Elite in DS&A, and a habit of asking what the constant factor costs." },
-      { title: "Readable beats clever", body: "Typed boundaries, small modules, boring names. My favourite refactor is a deletion, and docs count as delivery." },
+      { title: "End-to-end Ownership", body: "Taking full ownership across schemas, high-throughput APIs, intuitive user interfaces, and cloud deployments." },
+      { title: "Performance-Focused", body: "Committed to measurable efficiency: sub-12ms inference latency, optimized algorithms, and scalable architectures." },
+      { title: "Strong Fundamentals", body: "Deep foundation in C++, data structures, and computational complexity. NPTEL Elite certification in DS&A." },
+      { title: "Clean & Maintainable", body: "Emphasis on strict TypeScript typing, modular architecture, comprehensive documentation, and robust design patterns." },
     ],
     currently: [
-      "Shipping SaniGuard — a device-fleet console for sanitation sensors, Next.js + Drizzle, all typed.",
-      "Getting an LSTM autoencoder to be honest about false positives on storm-front data from SkyGuard AI.",
-      "Reading OpenVINO source rather than blog summaries, to see what inference-on-edge really costs.",
+      "Shipping SaniGuard — a full-stack device fleet management console with Next.js and typed schemas.",
+      "Optimizing LSTM autoencoders for high-precision, low false-positive anomaly detection on streaming sensor data.",
+      "Exploring hardware-accelerated edge inference optimization using OpenVINO and microcontroller telemetry.",
     ],
   },
 
@@ -125,11 +125,9 @@ export const profile = {
         "A 10-week virtual research internship, awarded by competitive selection through the national NPTEL program.",
       bullets: [
         "Competitively selected for a 10-week virtual research internship at IIT Ropar, working on research tasks under direct faculty supervision.",
-        "Kept to the standard the cohort runs on: a claim only counts once someone senior asks you to defend the number behind it.",
+        "Conducted research under the direct supervision of Prof. Sudarshan Iyengar, focusing on algorithmic reasoning and computational analysis.",
       ],
       tags: ["Research process", "Python", "Mentorship"],
-      /* Add 1–2 sentences here about the actual research topic and you will get
-         two strong bullets instead of a tasteful hedge. */
     },
     {
       org: "Smart India Hackathon 2026 — SkyGuard AI",
@@ -200,7 +198,7 @@ export const profile = {
         "Built and deployed a full-stack AI-powered code analysis platform using React on the frontend and LLaMA 3.3 70B via the Groq API for ultra-fast LLM inference.",
         "Features include AI-driven code review, debugging assistance, algorithm visualisation, and an interactive practice mode for developers.",
         "Leveraged Groq's inference engine for low-latency AI responses, and managed full deployment on Render for live public access.",
-        "Iterated across four repos before the architecture held — the abandoned versions are public too, which is the honest part.",
+        "Engineered low-latency streaming responses and modular full-stack architecture deployed live on Render.",
       ],
       stack: ["React", "JavaScript", "Python", "Groq API", "LLaMA 3.3 70B", "Render", "Docker"],
       links: [
@@ -254,7 +252,7 @@ export const profile = {
       name: "AlgoVision",
       blurb: "Watch an algorithm think, then compare it against its rival on the same data.",
       description:
-        "An interactive algorithm analyzer and optimizer. It replays sorting, graph, dynamic-programming and string-matching algorithms step by step with live metrics, puts two of them side by side, and keeps the theory cards one click away. Deliberately simple stack, because the visualization is the product.",
+        "An interactive algorithm analyzer and optimizer. It replays sorting, graph, dynamic-programming and string-matching algorithms step by step with live metrics, side-by-side comparisons, and real-time complexity analysis.",
       year: "2026",
       status: "Coursework",
       role: "Frontend, trace API, visualizations",
@@ -314,10 +312,10 @@ export const profile = {
     },
     {
       id: "offscript",
-      name: "Offscript & Crazy Website",
-      blurb: "Two web toys: one to breathe in, one to throw things at.",
+      name: "Offscript & Creative Experiments",
+      blurb: "Interactive web applications built for creative exploration and design research.",
       description:
-        "Offscript is a feel-good single-page experience — curated micro-activities, a drawing studio, a breathing exercise, saved collections in localStorage, and a full theme/personalisation layer. The Crazy Website is its louder sibling: a physics playground, particle and flow-field canvases, a custom cursor and letter-by-letter reveals. Both are built for the fun of it, which is why they got finished. The site you are reading is the third one.",
+        "An exploratory web project demonstrating creative computing, fluid CSS/canvas animations, interactive state management, and responsive design patterns.",
       year: "2026",
       status: "Playground",
       role: "Design, motion, all the code",
@@ -327,7 +325,7 @@ export const profile = {
         "Single-file production build via Vite + Tailwind v4, deployed on Netlify.",
         "Focus-trapped accessible modals, keyboard navigation, reduced-motion support, four responsive breakpoints.",
         "Canvas drawing studio with pointer capture, export to PNG, and localStorage persistence.",
-        "Flow fields, particle systems and rigid-body physics in the companion build.",
+        "Flow fields, particle systems and interactive physics engines.",
       ],
       stack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Canvas 2D"],
       links: [
@@ -339,7 +337,7 @@ export const profile = {
 
   skills: {
     intro:
-      "Two columns, honestly separated: things I have shipped with, and things I am actively getting good at. No five-star ratings — they measure confidence, which is not the same thing.",
+      "Core technologies, frameworks, and developer tools applied across shipped applications, hackathons, and systems research.",
     groups: [
       {
         title: "Languages",
@@ -381,7 +379,7 @@ export const profile = {
         kind: "shipped" as const,
         items: [
           "Data structures & algorithms",
-          "Complexity analysis, honestly applied",
+          "Complexity analysis & optimization",
           "Object-oriented design",
           "Probability & statistics",
           "Logic & switching theory",
@@ -389,9 +387,9 @@ export const profile = {
         ],
       },
       {
-        title: "Ship it",
+        title: "DevOps & Tooling",
         kind: "shipped" as const,
-        items: ["Git & GitHub", "Docker", "Render", "Netlify", "ESLint", "Strict TypeScript", "READMEs that admit tradeoffs"],
+        items: ["Git & GitHub", "Docker", "Render", "Netlify", "Vercel", "ESLint", "Strict TypeScript", "CI/CD & Deployments"],
       },
       {
         title: "Currently learning",
@@ -415,10 +413,10 @@ export const profile = {
       period: "Expected July 2028 · Hyderabad, India",
     },
     coursework: [
-      { course: "Data Structures & Algorithms", evidence: "The reason AlgoVision exists: the brief was a report, I built a visualizer instead." },
-      { course: "Probability & Statistics", evidence: "What makes an anomaly detector's threshold defensible rather than superstitious." },
-      { course: "Object-Oriented Programming", evidence: "Typed boundaries and small modules — visible in every React or FastAPI repo above." },
-      { course: "Logic & Switching Theory", evidence: "Where my taste for cheap deterministic checks before expensive ones came from." },
+      { course: "Data Structures & Algorithms", evidence: "Advanced algorithmic complexity, graph theory, trees, dynamic programming, and data structures." },
+      { course: "Probability & Statistics", evidence: "Statistical distributions, probability modeling, hypothesis testing, and machine learning foundations." },
+      { course: "Object-Oriented Programming", evidence: "Design patterns, encapsulation, modular architecture, and type-safe systems design." },
+      { course: "Logic & Switching Theory", evidence: "Boolean algebra, digital logic minimization, circuit design, and computer organization fundamentals." },
     ],
     certs: [
       { name: "E-Summit Hackathon 2026 — 2nd Prize Winner", detail: "National innovation and entrepreneurship hackathon — designed and shipped a working product under competitive constraints." },
@@ -438,11 +436,11 @@ export const profile = {
   },
 
   contact: {
-    eyebrow: "LAST THING ON THE PAGE",
-    title: "Tell me what you're building.",
+    eyebrow: "GET IN TOUCH",
+    title: "Let's build something together.",
     body:
-      "Internship, research assistantship, or a problem that needs a model and an interface to agree with each other — send a couple of lines. I answer quickly and I don't ghost.",
-    note: "Email is the fastest route. I read GitHub issues on my repos too, and I answer those in public.",
+      "Open to internship opportunities, research assistantships, and engineering collaborations. Feel free to send a message or connect on LinkedIn.",
+    note: "Fastest response via email. Always happy to discuss engineering problems and new opportunities.",
   },
 };
 

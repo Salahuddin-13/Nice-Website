@@ -64,7 +64,7 @@ export default function Hero() {
             height={40}
           />
           <span>
-            {hero.social} <strong>All code reviewable.</strong>
+            {hero.social} <strong>Open source contributor & builder.</strong>
           </span>
           <svg className="social-swoop" viewBox="0 0 65 35">
             <path d="M4 24C14 34 40 27 49 5m-11 5 12-7 7 12" />

@@ -56,8 +56,9 @@ export default function Nav() {
         }}
       >
         <Asterisk />
-        {profile.firstName}
-        <span className="brand-dot">{profile.lastName}</span>
+        <span className="brand-name">
+          {profile.firstName} <span className="brand-accent">{profile.lastName}</span>
+        </span>
       </a>
 
       <nav className={cn("main-nav", open && "mobile-open")} aria-label="Sections">
