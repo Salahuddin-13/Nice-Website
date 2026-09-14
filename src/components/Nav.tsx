@@ -3,15 +3,7 @@ import { cn } from "../utils/cn";
 import { profile } from "../data/profile";
 import { Asterisk, Icon } from "./icons";
 import { scrollToId, useScrollSpy } from "../hooks/useScroll";
-
-export const sections = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
-  { id: "skills", label: "Skills" },
-  { id: "education", label: "Education" },
-  { id: "contact", label: "Contact" },
-];
+import { sections } from "../data/nav";
 
 export function ResumeButton({ className = "", dark = true }: { className?: string; dark?: boolean }) {
   const resume = profile.links.resume;
