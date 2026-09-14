@@ -68,6 +68,49 @@ function CaseStudy({ project, onClose }: { project: Project; onClose: () => void
 
 export default function Projects() {
   const [open, setOpen] = useState<Project | null>(null);
+  const [featured, ...rest] = projects;
+
+  const card = (p: Project, i: number) => (
+    <article className={cn("discovery-card", "reveal", `card-${i % 3}`)} key={p.id}>
+      <div
+        className={`card-art ${p.art}`}
+        role="button"
+        tabIndex={0}
+        onClick={() => setOpen(p)}
+        onKeyDown={e => {
+          if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            setOpen(p);
+          }
+        }}
+        aria-label={`Open the ${p.name} case study`}
+      >
+        <Art art={p.art} />
+        <span className="card-tag">{p.role}</span>
+        <span className="card-time">{p.year}</span>
+      </div>
+      <div className="card-title-row">
+        <button className="card-title" onClick={() => setOpen(p)}>
+          <h3>{p.name}</h3>
+          <Icon name="arrow" size={23} />
+        </button>
+        <StatusPill status={p.status} />
+      </div>
+      <p>{p.blurb}</p>
+      <div className="tag-row">
+        {p.tags.map(t => (
+          <Tag key={t}>{t}</Tag>
+        ))}
+      </div>
+      <div className="card-links no-print">
+        {p.links.map(l => (
+          <a className="text-button" key={l.href} href={l.href} target="_blank" rel="noreferrer">
+            {l.label} <Icon name="arrow" size={15} />
+          </a>
+        ))}
+      </div>
+    </article>
+  );
 
   return (
     <Section id="work" className="projects-section">
@@ -75,9 +118,9 @@ export default function Projects() {
         eyebrow="SELECTED WORK"
         title={
           <>
-            Six things I built and
+            Seven things I built
             <br />
-            can <em className="serif">defend</em> in an interview.
+            and can <em className="serif">defend</em> in an interview.
           </>
         }
         aside="Tap any card for the case study: the problem, the tradeoffs, the stack, and the repo."
@@ -88,49 +131,63 @@ export default function Projects() {
         }
       />
 
-      <div className="discovery-grid">
-        {projects.map((p, i) => (
-          <article className={cn("discovery-card", "reveal", `card-${i % 3}`)} key={p.id}>
-            <div
-              className={`card-art ${p.art}`}
-              role="button"
-              tabIndex={0}
-              onClick={() => setOpen(p)}
-              onKeyDown={e => {
-                if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
-                  e.preventDefault();
-                  setOpen(p);
-                }
-              }}
-              aria-label={`Open the ${p.name} case study`}
-            >
-              <Art art={p.art} />
-              <span className="card-tag">{p.role}</span>
-              <span className="card-time">{p.year}</span>
-            </div>
-            <div className="card-title-row">
-              <button className="card-title" onClick={() => setOpen(p)}>
-                <h3>{p.name}</h3>
-                <Icon name="arrow" size={23} />
-              </button>
-              <StatusPill status={p.status} />
-            </div>
-            <p>{p.blurb}</p>
-            <div className="tag-row">
-              {p.tags.map(t => (
-                <Tag key={t}>{t}</Tag>
-              ))}
-            </div>
-            <div className="card-links no-print">
-              {p.links.map(l => (
-                <a className="text-button" key={l.href} href={l.href} target="_blank" rel="noreferrer">
-                  {l.label} <Icon name="arrow" size={15} />
-                </a>
-              ))}
-            </div>
-          </article>
-        ))}
+      {/* The flagship gets its own wide card, then the grid carries the rest. */}
+      <div className="discovery-card featured reveal" key={featured.id}>
+        <div
+          className={`card-art ${featured.art}`}
+          role="button"
+          tabIndex={0}
+          onClick={() => setOpen(featured)}
+          onKeyDown={e => {
+            if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
+              e.preventDefault();
+              setOpen(featured);
+            }
+          }}
+          aria-label={`Open the ${featured.name} case study`}
+        >
+          <Art art={featured.art} />
+          <span className="card-tag">{featured.role}</span>
+          <span className="card-time">{featured.year}</span>
+        </div>
+        <div className="featured-body">
+          <div className="eyebrow section-eyebrow">
+            <Icon name="spark" size={13} /> HEADLINE PROJECT
+          </div>
+          <div className="card-title-row">
+            <button className="card-title" onClick={() => setOpen(featured)}>
+              <h3>{featured.name}</h3>
+              <Icon name="arrow" size={23} />
+            </button>
+            <StatusPill status={featured.status} />
+          </div>
+          <p>{featured.blurb}</p>
+          <ul className="bullets featured-bullets">
+            {featured.highlights.slice(0, 2).map(h => (
+              <li key={h.slice(0, 18)}>{h}</li>
+            ))}
+          </ul>
+          <div className="tag-row">
+            {featured.tags.map(t => (
+              <Tag key={t} tone="lime">
+                {t}
+              </Tag>
+            ))}
+          </div>
+          <div className="card-links no-print">
+            {featured.links.map(l => (
+              <a className="text-button" key={l.href} href={l.href} target="_blank" rel="noreferrer">
+                {l.label} <Icon name="arrow" size={15} />
+              </a>
+            ))}
+            <button className="text-button" onClick={() => setOpen(featured)}>
+              Read the case study <Icon name="arrow" size={15} />
+            </button>
+          </div>
+        </div>
       </div>
+
+      <div className="discovery-grid">{rest.map((p, i) => card(p, i + 1))}</div>
 
       {open && <CaseStudy project={open} onClose={() => setOpen(null)} />}
     </Section>

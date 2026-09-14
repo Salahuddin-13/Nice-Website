@@ -1,4 +1,4 @@
-# Mohammed Salahuddin — portfolio
+# Mohammed Salahuddin Shams — portfolio
 
 A single-page portfolio built on the **Offscript** design language: cream paper, lilac ink,
 Manrope display type, hand-drawn squiggles, arched hero art, a marquee ticker and modal case
@@ -15,6 +15,20 @@ npm install
 npm run dev      # http://localhost:5173  (also reachable from your phone on the same Wi-Fi)
 npm run build    # -> dist/index.html, everything inlined
 ```
+
+## Content status
+
+Filled from `Mohammed_Salahuddin_Shams_Resume_v4.pdf` (14 Sep 2026) and cross-checked against the
+READMEs of your own public repos. Two things are deliberately still blank, and the UI shows a
+labelled placeholder for each rather than a guess:
+
+1. **`links.linkedin` and `links.leetcode`** — the résumé links them, but a PDF has no hrefs I can
+   read, so paste the two URLs into `src/data/profile.ts`.
+2. **What you researched at IIT Ropar** — the résumé gives it one sentence, so the timeline says
+   that much and no more. Two sentences on the topic, method and any result would turn that entry
+   from "real" into "memorable".
+
+`education.degree.extras` (scholarships, ranks, fest roles) is optional if you want it.
 
 ## Edit it
 

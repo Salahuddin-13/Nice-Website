@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { profile } from "../data/profile";
-import { Icon } from "./icons";
-import { Asterisk } from "./icons";
+import { Asterisk, Icon } from "./icons";
 import { Section } from "./Section";
 
 const { contact } = profile;
@@ -11,8 +10,22 @@ export default function Contact() {
   const ready = Boolean(profile.email);
 
   const subject = `Portfolio enquiry${form.org ? ` — ${form.org}` : ""}`;
-  const body = `${form.message}\n\n— ${form.from}${form.org ? ` (${form.org})` : ""}\nSent from ${profile.name.split(" ")[0]}'s portfolio.`;
+  const body = `${form.message}\n\n— ${form.from}${form.org ? ` (${form.org})` : ""}\nSent from ${profile.firstName}'s portfolio.`;
   const href = ready ? `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}` : "#";
+
+  const link = (label: string, url: string, icon: "github" | "external" | "mail") =>
+    url ? (
+      <a className="contact-link" key={label} href={url} target={url.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+        <Icon name={icon} size={18} />
+        <span>{label}</span>
+        <Icon name="arrow" size={15} />
+      </a>
+    ) : (
+      <span className="contact-link is-pending" key={label}>
+        <Icon name={icon} size={18} />
+        <span>{label} — paste your URL into src/data/profile.ts</span>
+      </span>
+    );
 
   return (
     <Section id="contact" className="contact-section">
@@ -28,23 +41,10 @@ export default function Contact() {
           <p>{contact.body}</p>
 
           <div className="contact-links">
-            <a className="contact-link" href={profile.links.github} target="_blank" rel="noreferrer">
-              <Icon name="github" size={18} />
-              <span>github.com/Salahuddin-13</span>
-              <Icon name="arrow" size={15} />
-            </a>
-            {profile.links.linkedin ? (
-              <a className="contact-link" href={profile.links.linkedin} target="_blank" rel="noreferrer">
-                <Icon name="external" size={18} />
-                <span>LinkedIn</span>
-                <Icon name="arrow" size={15} />
-              </a>
-            ) : (
-              <span className="contact-link is-pending">
-                <Icon name="external" size={18} />
-                <span>LinkedIn — add the URL in src/data/profile.ts</span>
-              </span>
-            )}
+            {link(profile.email, ready ? `mailto:${profile.email}` : "", "mail")}
+            {link("github.com/Salahuddin-13", profile.links.github, "github")}
+            {link("LinkedIn", profile.links.linkedin, "external")}
+            {link("LeetCode", profile.links.leetcode, "external")}
             <span className="contact-link">
               <Icon name="pin" size={18} />
               <span>{profile.location}</span>
@@ -65,12 +65,12 @@ export default function Contact() {
           <label htmlFor="c-org">Team or company</label>
           <input id="c-org" value={form.org} onChange={e => setForm({ ...form, org: e.target.value })} placeholder="Optional" />
           <label htmlFor="c-msg">What's the problem?</label>
-          <textarea id="c-msg" rows={4} required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="We have weather-station telemetry and no idea what to do with it…" />
+          <textarea id="c-msg" rows={4} required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="We have a research assistantship on time-series anomaly detection and 8 weeks of runway…" />
           <button className="button dark full-width" type="submit" disabled={!ready}>
             {ready ? "Say hello" : "Add profile.email to enable sending"} <Icon name="arrow" size={18} />
           </button>
           <p className="privacy-note">
-            {ready ? contact.note : `No backend, nothing stored: this composes a mailto. Set email in src/data/profile.ts.`}
+            {ready ? contact.note : "No backend, nothing stored: this composes a mailto. Set email in src/data/profile.ts."}
           </p>
         </form>
       </div>
@@ -91,9 +91,12 @@ export function Footer() {
       >
         <Asterisk />
         {profile.firstName}
-        <span className="brand-dot">dev</span>
+        <span className="brand-dot">{profile.lastName}</span>
       </a>
-      <p>Built with React, TypeScript and Tailwind — content lives in one file, so updating it is a one-line change.</p>
+      <p>
+        Built by hand with React, TypeScript and Tailwind — every word on this page comes from <code>src/data/profile.ts</code>,
+        so updating it is a one-line change.
+      </p>
       <span>
         © {new Date().getFullYear()} {profile.name}. <span className="footer-spark">✳</span> No template, no tracker.
       </span>

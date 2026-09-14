@@ -14,18 +14,24 @@ export default function Hero() {
         </div>
 
         <h1>
-          {profile.name.split(" ")[0]}
+          {hero.nameLines[0]}
+          <br />
+          {hero.nameLines[1]}
           <br />
           <span className="magic">
-            {profile.name.split(" ").slice(1).join(" ")}.
+            {hero.nameAccent}
             <Squiggle />
           </span>
           <span className="title-spark">✧</span>
         </h1>
 
-        <p className="hero-description">
-          {profile.role}. {hero.description}
+        <p className="hero-role">
+          <b>{profile.role}</b>
+          <span className="role-sep" aria-hidden="true" />
+          {profile.subtitle}
         </p>
+
+        <p className="hero-description">{hero.description}</p>
 
         <div className="hero-actions">
           <button className="button dark" onClick={() => scrollToId("work")}>
@@ -44,7 +50,13 @@ export default function Hero() {
         </div>
 
         <div className="hero-social">
-          <img className="hero-avatar" src="https://avatars.githubusercontent.com/u/185537916?v=4" alt="" width={40} height={40} />
+          <img
+            className="hero-avatar"
+            src="https://avatars.githubusercontent.com/u/185537916?v=4"
+            alt=""
+            width={40}
+            height={40}
+          />
           <span>
             {hero.social} <strong>All code reviewable.</strong>
           </span>
@@ -72,11 +84,11 @@ export default function Hero() {
           {hero.floatLabel}
         </div>
         <button className="permission-card" onClick={() => scrollToId("experience")}>
-          <span>WHERE I'VE BEEN</span>
+          <span>{hero.card.kicker}</span>
           <strong>
-            Hackathon
+            {hero.card.strong[0]}
             <br />
-            to production.
+            {hero.card.strong[1]}
           </strong>
           <Icon name="arrow" size={20} />
         </button>

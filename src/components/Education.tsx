@@ -1,6 +1,6 @@
 import { profile } from "../data/profile";
 import { Icon } from "./icons";
-import { PendingNote, Section, SectionHead } from "./Section";
+import { Section, SectionHead } from "./Section";
 
 const { education } = profile;
 
@@ -11,10 +11,10 @@ export default function Education() {
   return (
     <Section id="education" className="education-section">
       <SectionHead
-        eyebrow="WHERE THE FUNDAMENTALS CAME FROM"
+        eyebrow="THE PAPERWORK"
         title={
           <>
-            Degrees are a line item.
+            A degree is a line item.
             <br />
             <em className="serif">Coursework</em> is the receipt.
           </>
@@ -23,25 +23,21 @@ export default function Education() {
 
       <div className="education-grid">
         <div className="edu-card reveal">
+          <div className="eyebrow section-eyebrow">{degree.period}</div>
           {hasDegree ? (
             <>
-              <div className="eyebrow section-eyebrow">{degree.period}</div>
               <h3>{degree.institution}</h3>
               <p>{degree.detail}</p>
+              <span className="edu-sticker">
+                <Icon name="check" size={15} /> in good standing
+              </span>
             </>
           ) : (
             <>
-              <div className="eyebrow section-eyebrow">PENDING — ONE LINE FROM YOUR RÉSUMÉ</div>
               <h3>
                 Your degree, <em className="serif">here.</em>
               </h3>
-              <p>
-                Institution, programme, batch and CGPA go in <code>src/data/profile.ts</code> under{" "}
-                <code>education.degree</code>. This card is styled and waiting so the section never looks empty.
-              </p>
-              <span className="edu-sticker">
-                <Icon name="print" size={15} /> add me
-              </span>
+              <p>Set education.degree in src/data/profile.ts and this card fills itself in.</p>
             </>
           )}
           <div className="edu-seal" aria-hidden="true">
@@ -50,7 +46,7 @@ export default function Education() {
         </div>
 
         <div className="edu-block reveal">
-          <div className="eyebrow section-eyebrow">COURSEWORK I ACTUALLY USED</div>
+          <div className="eyebrow section-eyebrow">RELEVANT COURSEWORK</div>
           <ul className="coursework">
             {education.coursework.map(c => (
               <li key={c.course}>
@@ -62,7 +58,7 @@ export default function Education() {
         </div>
 
         <div className="edu-block reveal">
-          <div className="eyebrow section-eyebrow">BEYOND THE SYLLABUS</div>
+          <div className="eyebrow section-eyebrow">CERTIFICATIONS &amp; AWARDS</div>
           <ul className="coursework">
             {education.certs.map(c => (
               <li key={c.name}>
@@ -71,9 +67,18 @@ export default function Education() {
               </li>
             ))}
           </ul>
-          <PendingNote className="print-hide">
-            Certificates, scholarships and hackathon placements belong in <code>education.certs</code>.
-          </PendingNote>
+        </div>
+      </div>
+
+      <div className="leadership reveal">
+        <div className="eyebrow section-eyebrow">LEADERSHIP &amp; CO-CURRICULAR</div>
+        <div className="leadership-row">
+          {education.leadership.map(l => (
+            <div className="leadership-item" key={l.name}>
+              <h3>{l.name}</h3>
+              <p>{l.detail}</p>
+            </div>
+          ))}
         </div>
       </div>
     </Section>

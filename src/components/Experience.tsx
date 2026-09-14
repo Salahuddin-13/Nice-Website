@@ -1,8 +1,8 @@
 import { profile } from "../data/profile";
 import { Icon } from "./icons";
-import { PendingNote, Section, SectionHead, Tag } from "./Section";
+import { Section, SectionHead, Tag } from "./Section";
 
-const { experience, experienceNote } = profile;
+const { experience } = profile;
 
 export default function Experience() {
   return (
@@ -11,19 +11,19 @@ export default function Experience() {
         eyebrow="THINGS I WAS RESPONSIBLE FOR"
         title={
           <>
-            A short timeline,
+            One research internship,
             <br />
-            written in <em className="serif">verifiable</em> sentences.
+            two <em className="serif">hackathon</em> builds.
           </>
         }
-        aside="Every bullet here came from a repo you can open. Where a number is quoted, it lives in the README."
+        aside="Written from résumé v4 and cross-checked against my public repositories. Where a number is quoted, it lives in that repo's README."
       />
 
       <ol className="timeline">
         {experience.map(role => (
           <li className="timeline-item reveal" key={role.org}>
             <span className="timeline-dot" aria-hidden="true">
-              <Icon name="layers" size={15} />
+              <Icon name={role.kind === "Research" ? "spark" : "layers"} size={15} />
             </span>
             <div className="timeline-body">
               <div className="role-head">
@@ -32,7 +32,13 @@ export default function Experience() {
                 </h3>
                 <span className="role-period">{role.period}</span>
               </div>
-              {role.location && <span className="role-location">{role.location}</span>}
+              <div className="role-meta">
+                {role.location && <span className="role-location">{role.location}</span>}
+                <span className="role-kind">
+                  <Icon name={role.kind === "Research" ? "check" : "shuffle"} size={13} />
+                  {role.kind}
+                </span>
+              </div>
               <p className="role-summary">{role.summary}</p>
               <ul className="bullets">
                 {role.bullets.map(b => (
@@ -52,29 +58,7 @@ export default function Experience() {
             </div>
           </li>
         ))}
-
-        {experienceNote.pending && (
-          <li className="timeline-item pending reveal">
-            <span className="timeline-dot dashed" aria-hidden="true">
-              <Icon name="spark" size={15} />
-            </span>
-            <div className="timeline-body">
-              <div className="role-head">
-                <h3>
-                  Internships & full-time roles <span className="role-at">slot in</span> here
-                </h3>
-                <span className="role-period">Résumé → this timeline</span>
-              </div>
-              <p className="role-summary">{experienceNote.text}</p>
-            </div>
-          </li>
-        )}
       </ol>
-
-      <PendingNote className="print-hide">
-        The content above reads from <code>src/data/profile.ts</code>. Paste your résumé in and these entries become
-        real job titles, companies and dates — no layout changes needed.
-      </PendingNote>
     </Section>
   );
 }

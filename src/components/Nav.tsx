@@ -65,7 +65,7 @@ export default function Nav() {
       >
         <Asterisk />
         {profile.firstName}
-        <span className="brand-dot">dev</span>
+        <span className="brand-dot">{profile.lastName}</span>
       </a>
 
       <nav className={cn("main-nav", open && "mobile-open")} aria-label="Sections">
@@ -74,6 +74,16 @@ export default function Nav() {
             {s.label}
           </button>
         ))}
+        <button
+          className="nav-link mobile-only"
+          onClick={() => {
+            setOpen(false);
+            if (profile.links.resume) window.open(profile.links.resume, "_blank");
+            else window.print();
+          }}
+        >
+          Résumé
+        </button>
       </nav>
 
       <div className="header-right no-print">
