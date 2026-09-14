@@ -16,4 +16,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  // Reachable from a phone on the same network (and from hosted preview URLs).
+  server: { host: true, port: 5173, allowedHosts: true },
+  preview: { host: true, port: 4173, allowedHosts: true },
 });

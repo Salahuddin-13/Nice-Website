@@ -1,0 +1,138 @@
+import { useEffect, useState } from "react";
+import { cn } from "../utils/cn";
+import { profile, type Project } from "../data/profile";
+import { Art } from "./Art";
+import { Icon } from "./icons";
+import { Section, SectionHead, Tag } from "./Section";
+
+const { projects } = profile;
+
+function StatusPill({ status }: { status: Project["status"] }) {
+  return <span className={cn("status-pill", `status-${status.toLowerCase().replace(/\s+/g, "-")}`)}>{status}</span>;
+}
+
+function CaseStudy({ project, onClose }: { project: Project; onClose: () => void }) {
+  useEffect(() => {
+    const previous = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+      previous?.focus();
+    };
+  }, [onClose]);
+
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <section className="modal case-study" role="dialog" aria-modal="true" aria-labelledby="case-title" onClick={e => e.stopPropagation()}>
+        <button className="modal-close icon-button" onClick={onClose} aria-label="Close case study" autoFocus>
+          <Icon name="close" />
+        </button>
+        <div className="case-art">
+          <Art art={project.art} />
+        </div>
+        <div className="eyebrow section-eyebrow">
+          {project.year} · {project.role}
+        </div>
+        <h2 id="case-title">{project.name}</h2>
+        <p className="modal-description">{project.description}</p>
+        <div className="eyebrow section-eyebrow">WHAT ACTUALLY HAPPENED</div>
+        <ul className="bullets">
+          {project.highlights.map(h => (
+            <li key={h.slice(0, 18)}>{h}</li>
+          ))}
+        </ul>
+        <div className="tag-row">
+          {project.stack.map(s => (
+            <Tag key={s} tone="outline">
+              {s}
+            </Tag>
+          ))}
+        </div>
+        <div className="modal-footer">
+          {project.links.map(l => (
+            <a className="button dark" key={l.href} href={l.href} target="_blank" rel="noreferrer">
+              {l.label} <Icon name="arrow" size={17} />
+            </a>
+          ))}
+          <span className="modal-note">
+            <Icon name="check" size={15} /> Read the commits, not just the screenshots.
+          </span>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [open, setOpen] = useState<Project | null>(null);
+
+  return (
+    <Section id="work" className="projects-section">
+      <SectionHead
+        eyebrow="SELECTED WORK"
+        title={
+          <>
+            Six things I built and
+            <br />
+            can <em className="serif">defend</em> in an interview.
+          </>
+        }
+        aside="Tap any card for the case study: the problem, the tradeoffs, the stack, and the repo."
+        action={
+          <a className="text-button explore-all" href={profile.links.github} target="_blank" rel="noreferrer">
+            All 22 repos <Icon name="arrow" size={18} />
+          </a>
+        }
+      />
+
+      <div className="discovery-grid">
+        {projects.map((p, i) => (
+          <article className={cn("discovery-card", "reveal", `card-${i % 3}`)} key={p.id}>
+            <div
+              className={`card-art ${p.art}`}
+              role="button"
+              tabIndex={0}
+              onClick={() => setOpen(p)}
+              onKeyDown={e => {
+                if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
+                  e.preventDefault();
+                  setOpen(p);
+                }
+              }}
+              aria-label={`Open the ${p.name} case study`}
+            >
+              <Art art={p.art} />
+              <span className="card-tag">{p.role}</span>
+              <span className="card-time">{p.year}</span>
+            </div>
+            <div className="card-title-row">
+              <button className="card-title" onClick={() => setOpen(p)}>
+                <h3>{p.name}</h3>
+                <Icon name="arrow" size={23} />
+              </button>
+              <StatusPill status={p.status} />
+            </div>
+            <p>{p.blurb}</p>
+            <div className="tag-row">
+              {p.tags.map(t => (
+                <Tag key={t}>{t}</Tag>
+              ))}
+            </div>
+            <div className="card-links no-print">
+              {p.links.map(l => (
+                <a className="text-button" key={l.href} href={l.href} target="_blank" rel="noreferrer">
+                  {l.label} <Icon name="arrow" size={15} />
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {open && <CaseStudy project={open} onClose={() => setOpen(null)} />}
+    </Section>
+  );
+}
