@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { profile } from "../data/profile";
-import { Asterisk, Icon } from "./icons";
+import { Asterisk, Icon, type IconName } from "./icons";
 import { Section } from "./Section";
 
 const { contact } = profile;
@@ -13,7 +13,7 @@ export default function Contact() {
   const body = `${form.message}\n\n— ${form.from}${form.org ? ` (${form.org})` : ""}\nSent from ${profile.firstName}'s portfolio.`;
   const href = ready ? `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}` : "#";
 
-  const link = (label: string, url: string, icon: "github" | "external" | "mail") =>
+  const link = (label: string, url: string, icon: IconName) =>
     url ? (
       <a className="contact-link" key={label} href={url} target={url.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
         <Icon name={icon} size={18} />
@@ -43,8 +43,8 @@ export default function Contact() {
           <div className="contact-links">
             {link(profile.email, ready ? `mailto:${profile.email}` : "", "mail")}
             {link("github.com/Salahuddin-13", profile.links.github, "github")}
-            {link("LinkedIn", profile.links.linkedin, "external")}
-            {link("LeetCode", profile.links.leetcode, "external")}
+            {link("LinkedIn", profile.links.linkedin, "linkedin")}
+            {link("LeetCode", profile.links.leetcode, "code")}
             <span className="contact-link">
               <Icon name="pin" size={18} />
               <span>{profile.location}</span>

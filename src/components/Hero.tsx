@@ -45,7 +45,13 @@ export default function Hero() {
         <div className="hero-actions secondary no-print">
           <ResumeButton dark={false} />
           <a className="surprise-button" href={profile.links.github} target="_blank" rel="noreferrer">
-            <Icon name="github" size={19} /> @Salahuddin-13
+            <Icon name="github" size={19} /> GitHub
+          </a>
+          <a className="surprise-button" href={profile.links.linkedin} target="_blank" rel="noreferrer">
+            <Icon name="linkedin" size={18} /> LinkedIn
+          </a>
+          <a className="surprise-button" href={profile.links.leetcode} target="_blank" rel="noreferrer">
+            <Icon name="code" size={18} /> LeetCode
           </a>
         </div>
 

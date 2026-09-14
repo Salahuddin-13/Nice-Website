@@ -216,6 +216,7 @@ h2 { font-family: 'Manrope', sans-serif; font-size: 31px; line-height: 1.28; fon
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px }
 .tag { font-size: 10px; letter-spacing: .3px; color: #6c6963; background: #f2f0ec; border-radius: 20px; padding: 6px 11px }
 .tag-lime { background: var(--lime); color: #46502f }
+.tag-gold { background: #fdf3d8; color: #855f1a; border: 1px solid #ebd498; font-weight: 600 }
 .tag-outline { background: transparent; border: 1px solid var(--line); color: #7c7a75 }
 .role-link { margin-top: 14px; font-size: 11.5px; color: var(--accent) }
 .timeline-item.pending .timeline-body { background: var(--paper); border: 1px dashed #ddd5ea; border-radius: 16px; padding: 22px 24px }

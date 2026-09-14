@@ -51,11 +51,9 @@ export const profile = {
   email: "salahuddinmohammed475@gmail.com",
   links: {
     github: "https://github.com/Salahuddin-13",
-    linkedin: "",
-    leetcode: "",
-    /* Leave empty and the résumé button prints a clean, print-optimised version of
-       this page. Drop your PDF in public/ as resume.pdf and set "/resume.pdf". */
-    resume: "",
+    linkedin: "https://www.linkedin.com/in/mohammed-salahuddin-689669332/",
+    leetcode: "https://leetcode.com/u/salahuddin_1/",
+    resume: "/resume.pdf",
   },
 
   hero: {
@@ -206,6 +204,7 @@ export const profile = {
       ],
       stack: ["React", "JavaScript", "Python", "Groq API", "LLaMA 3.3 70B", "Render", "Docker"],
       links: [
+        { label: "Live App", href: "https://ai-code-review-sage.onrender.com/" },
         { label: "devsage-ai", href: "https://github.com/Salahuddin-13/devsage-ai" },
         { label: "ai-code-review-sage", href: "https://github.com/Salahuddin-13/ai-code-review-sage" },
       ],
@@ -292,15 +291,16 @@ export const profile = {
     {
       id: "crop",
       name: "Smart Crop Selector",
-      blurb: "Soil in, season in, crop out — a model with a farmer-facing interface.",
+      blurb: "Soil in, season in, crop out — 2nd Prize Winner at E-Summit Hackathon, with a farmer-facing interface.",
       description:
-        "A recommendation prototype for crop selection from soil, climate and geographic inputs, wrapped in a plain web interface so the demonstration could run without anyone installing Python. Two iterations: an earlier HTML build, then a rewrite with the model separated from the page.",
+        "A recommendation prototype for crop selection from soil, climate and geographic inputs, awarded 2nd Prize at the E-Summit Hackathon. Wrapped in an intuitive web interface so farmers and agronomists can run data-backed crop planning without needing technical software.",
       year: "2025",
-      status: "Shipped",
+      status: "Hackathon",
       role: "Model, data prep, interface",
-      tags: ["Python", "Scikit-learn", "Pandas"],
+      tags: ["2nd Prize Winner", "Python", "Scikit-learn", "Pandas"],
       art: "landscape",
       highlights: [
+        "Secured 2nd Prize at the E-Summit Hackathon — recognized for real-world agricultural impact, data integration, and full-stack execution.",
         "Feature engineering on regional soil, nutrient and rainfall data behind a data-backed recommendation.",
         "Clean input form with validation, so the demo survives strangers touching it.",
         "Bridged complex data inputs and a frontend a non-technical user could actually drive.",
@@ -421,6 +421,7 @@ export const profile = {
       { course: "Logic & Switching Theory", evidence: "Where my taste for cheap deterministic checks before expensive ones came from." },
     ],
     certs: [
+      { name: "E-Summit Hackathon 2026 — 2nd Prize Winner", detail: "National innovation and entrepreneurship hackathon — designed and shipped a working product under competitive constraints." },
       { name: "Oracle Cloud Infrastructure 2025 — Certified Generative AI Professional", detail: "Advanced proficiency in building and deploying LLM-based solutions on OCI." },
       { name: "Oracle Cloud Infrastructure 2025 — Certified Data Science Professional", detail: "ML model training, evaluation and deployment workflows." },
       { name: "Oracle Cloud Infrastructure 2025 — Certified AI Foundations Associate", detail: "Foundation layer for the GenAI and data-science tracks." },

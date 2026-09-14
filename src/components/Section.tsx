@@ -42,8 +42,8 @@ export function Section({
   );
 }
 
-export function Tag({ children, tone = "default" }: { children: ReactNode; tone?: "default" | "lime" | "outline" }) {
-  return <span className={cn("tag", tone === "lime" && "tag-lime", tone === "outline" && "tag-outline")}>{children}</span>;
+export function Tag({ children, tone = "default" }: { children: ReactNode; tone?: "default" | "lime" | "outline" | "gold" }) {
+  return <span className={cn("tag", tone === "lime" && "tag-lime", tone === "outline" && "tag-outline", tone === "gold" && "tag-gold")}>{children}</span>;
 }
 
 /* A note written in the site's own voice, used where a résumé detail is still missing. */

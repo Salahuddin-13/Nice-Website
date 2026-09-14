@@ -23,7 +23,7 @@ export default function Experience() {
         {experience.map(role => (
           <li className="timeline-item reveal" key={role.org}>
             <span className="timeline-dot" aria-hidden="true">
-              <Icon name={role.kind === "Research" ? "spark" : role.title.includes("Prize") ? "spark" : "layers"} size={15} />
+              <Icon name={role.title.includes("Prize") ? "trophy" : role.kind === "Research" ? "spark" : "layers"} size={15} />
             </span>
             <div className="timeline-body">
               <div className="role-head">
@@ -35,7 +35,7 @@ export default function Experience() {
               <div className="role-meta">
                 {role.location && <span className="role-location">{role.location}</span>}
                 <span className="role-kind">
-                  <Icon name={role.kind === "Research" ? "check" : "shuffle"} size={13} />
+                  <Icon name={role.title.includes("Prize") ? "trophy" : role.kind === "Research" ? "check" : "shuffle"} size={13} />
                   {role.kind}
                 </span>
               </div>
@@ -47,7 +47,7 @@ export default function Experience() {
               </ul>
               <div className="tag-row">
                 {role.tags.map(t => (
-                  <Tag key={t}>{t}</Tag>
+                  <Tag key={t} tone={t === "Award" || t.includes("Prize") ? "gold" : "default"}>{t}</Tag>
                 ))}
               </div>
               {role.link && (

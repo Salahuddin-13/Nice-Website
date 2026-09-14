@@ -45,6 +45,11 @@ function CaseStudy({ project, onClose }: { project: Project; onClose: () => void
           ))}
         </ul>
         <div className="tag-row">
+          {project.tags.filter(t => t.includes("Prize") || t.includes("Winner")).map(t => (
+            <Tag key={t} tone="gold">
+              {t}
+            </Tag>
+          ))}
           {project.stack.map(s => (
             <Tag key={s} tone="outline">
               {s}
@@ -99,7 +104,9 @@ export default function Projects() {
       <p>{p.blurb}</p>
       <div className="tag-row">
         {p.tags.map(t => (
-          <Tag key={t}>{t}</Tag>
+          <Tag key={t} tone={t.includes("Prize") || t.includes("Winner") ? "gold" : "default"}>
+            {t}
+          </Tag>
         ))}
       </div>
       <div className="card-links no-print">
